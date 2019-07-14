@@ -1,0 +1,1440 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+@font-face{
+    src: url('../fonts/chinese.msyh.ttf');
+    font-family: sumar;
+}
+
+$f: flex;
+$sa: space-around;
+$sb: space-between;
+$co: column;
+$c: center;
+$fw: wrap;
+$fs: flex-start;
+$fe: flex-end;
+
+$d0: 1200px;
+$d1: 992px;
+$d2: 768px;
+$d3: 576px;
+$d4: 480px;
+$d5: 380px;
+
+@mixin d0 {
+    @media (max-width: #{$d0}){
+        @content;
+    }
+}
+
+@mixin d1 {
+    @media (max-width: #{$d1}){
+        @content;
+    }
+}
+
+
+@mixin d2 {
+    @media (max-width: #{$d2}){
+        @content;
+    }
+}
+
+@mixin d3 {
+    @media (max-width: #{$d3}){
+        @content;
+    }
+}
+
+@mixin d4 {
+    @media (max-width: #{$d4}){
+        @content;
+    }
+}
+
+@mixin d5 {
+    @media (max-width: #{$d5}){
+        @content;
+    }
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    background-color: whitesmoke;
+
+    .tree{
+        width: 50px;
+        height: 50px;
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 999;
+        transition: 0.8s;
+        display: $f;
+        justify-content: $c;
+        align-items: $c;
+
+        @include d4{
+            right: 10px;
+        }
+
+        &:hover{
+            transform: translateY(-10px);
+        }
+
+        &:hover a{
+            color: lighten(rgb(52, 137, 185),20%);
+        }
+
+        a{
+            color: rgb(52, 137, 185);
+            font-size: 2em;
+            transition: 0.8s;
+            
+
+        }
+    }
+
+    .lang{
+        position: fixed;
+        display: $f;
+        flex-direction: $co;
+        justify-content: $c;
+        align-items: $c;
+        background-color: grey;
+        top: 50%;
+        z-index: 920;
+
+        @include d2{
+            right: 0px;
+        }
+
+        a{
+            text-decoration: none;
+            color: black;
+            font-size: 1.2em;
+            padding-bottom: 20px;
+            font-weight: bolder;
+        }
+
+        .obelezen{
+            color: rgb(71, 155, 211);
+        }
+    }
+
+    .zoviNas{
+        display: none;
+
+        @include d2{
+        display: block;
+        position: fixed;
+        z-index: 800;
+        right: 10px;
+        top: 30px;
+    }
+
+        i{
+            font-size: 1.7em;
+        }
+    }
+
+    .sidenav{
+        background-color: #000;
+        width: 250px;
+        height: 100%;
+        max-width: 250px;
+        max-height: 100%;
+        position: absolute;
+        display: $f;
+        flex-direction: $co;
+        justify-content: $fs;
+        align-items: $c;
+        margin-left: -250px;
+        transition: 0.5s all;
+        display: none;
+        font-family: sumar;
+        z-index: 990;
+
+        @include d2{
+            display: block;
+            position: fixed;
+            top: 0;
+            z-index: 300;
+        }
+
+        .close{
+            position: fixed;
+            top: 30px;
+            left: -200px;
+            transition: 0.6s;
+            z-index: 990;
+            color: rgb(52, 137, 185);
+
+            i{
+                color: rgb(52, 137, 185);
+            }
+        }
+
+        .close1{
+            left: 200px;
+        }
+
+        ul{
+            width: 100%;
+            height: 35%;
+            display: $f;
+            flex-direction: $co;
+            justify-content: $c;
+            align-items: $c;
+            list-style-type: none;
+
+            @include d2{
+                margin-top: 20%;
+            }
+
+            li{
+                margin: 6% 0%;
+
+
+                a{
+                    text-decoration: none;
+                    color: whitesmoke;
+                    font-size: 1.3em;
+                }
+            }
+        }
+
+        .logoSide{
+            width: 100%;
+            height: 50%;
+            display: $f;
+            justify-content: $c;
+            align-items: $c;
+        }
+    }
+
+    .sidenav1{
+        margin-left: 0px;
+        transition: 0.5s all;
+    }
+
+    .indicator{
+        position: absolute;
+        z-index: 1;
+        left: 30px;
+        top: 20px;
+        text-decoration: none;
+        font-size: 2em;
+        transition: 0.5s all;
+        display: none;
+
+        @include d2{
+            display: block;
+            position: fixed;
+        }
+
+        i{
+            color: rgb(52, 137, 185) !important;
+            transition: 0.65s;
+
+            &:hover{
+                color: rgb(52, 137, 185) !important;
+            }
+        }
+    }
+
+    .indicator1{
+        left: -30px;
+        transition: 0.5s all;
+    }
+
+    .prevod{
+        position: fixed;
+        top: 50%;
+        right: 0px;
+        height: 130px;
+        z-index: 600;
+        display: $f;
+        flex-direction: $co;
+        justify-content: $sa;
+        align-items: $c;
+        background-color: #333;
+
+        @include d3{
+            top: 0%;
+            right: 0%;
+            flex-direction: row;
+            width: 200px;
+            height: 80px;
+        }
+
+        @include d4{
+        flex-direction: $co;
+        width: 90px;
+        height: 100px;
+    }
+
+    @include d5{
+        width: 80px;
+    }
+
+        a{
+            text-decoration: none;
+            font-family: sumar;
+            color: whitesmoke;
+            font-size: 1.5em;
+
+            &:first-child{
+                color: rgb(150, 218, 72);
+            }
+        }
+    }
+
+    .nav{
+        width: 100%;
+        position: fixed;
+        top: 0;
+        display: $f;
+        justify-content: $sa;
+        align-items: $c;
+        background: transparent;
+        font-family: sumar;
+        transition: 0.6s;
+        z-index: 999;
+
+        @include d2{
+            display: none;
+        }
+
+        .logoHolder{
+            width: 30%;
+
+            img{
+                width: 30%;
+                max-width: 100%;
+                height: auto;
+            }
+
+        }
+
+        .lista{
+            width: 40%;
+            height: 100%;
+            display: $f;
+            justify-content: $c;
+            align-items: $c;
+
+            @include d0{
+                width: 50%;
+            }
+
+            @include d1{
+                width: 60%;
+            }
+
+        ul{
+            width: 100%;
+            height: 100px;
+            display: $f;
+            justify-content: $sa;
+            align-items: $c;
+            list-style-type: none;
+            margin-bottom: 0px;
+
+            li{
+                margin: 3% 0%;
+
+                a{
+                    text-decoration: none;
+                    color: whitesmoke;
+                    font-size: 1.4em;
+                    position: relative;
+                    transition: 0.5s;
+                    padding: 1px 0px;
+
+                    &:hover{
+                        text-decoration: none;
+                        color: rgb(52, 137, 185);
+                    }
+
+                    &::before, &::after{
+                        height: 3px;
+                        position: absolute;
+                        content: '';
+                        -webkit-transition: all 0.35s ease;
+                        transition: all 0.35s ease;
+                        background-color: #4e82c5;
+                        width: 0;
+                    }
+
+                    &::before{
+                        top: -5px;
+                        left: 0;
+                    }
+
+                    &::after{
+                        bottom: -5px;
+                        right: 0;
+                    }
+
+                    &:hover:before, &:hover:after{
+                        width: 100%;
+                    }
+
+                }
+
+                .zovi{
+                    color: rgb(52, 137, 185);
+                }
+
+                .cold{
+                    color: lighten(#000,10%);
+                }
+
+                .colored{
+                    color: rgb(52, 137, 185);
+                }
+            }
+        }
+    }
+    }
+
+    main{
+        width: 100%;
+        height: 100vh;
+        background-image: url('../images/cover.JPG');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;;
+        background-attachment: fixed;
+        font-family: sumar;
+
+        .faded{
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0,0,0,0.5);
+            display: $f;
+            justify-content: $c;
+            align-items: $c;
+
+            .content{
+                width: 50%;
+                display: $f;
+                flex-direction: $co;
+                justify-content: $c;
+                align-items: $c;
+
+                @include d1{
+                    text-align: $c;
+                }
+
+                h1{
+                    font-size: 4em;
+                    color: whitesmoke;
+                    padding-bottom: 2%;
+                    text-align: $c;
+
+                    @include d1{
+                        font-size: 3.4em;
+                    }
+
+                    @include d2{
+                        font-size: 2.6em;
+                    }
+
+                    @include d3{
+                        font-size: 2.2em;
+                    }
+
+                    @include d4{
+                        font-size: 1.6em;
+                    }
+
+                    @include d5{
+                        font-size: 1.4em;
+                    }
+                }
+
+                h2{
+                    font-size: 2em;
+                    color: whitesmoke;
+
+                    @include d2{
+                        font-size: 1.5em;
+                        padding-bottom: 5%;
+                    }
+
+                    @include d3{
+                        font-size: 1.3em;
+                    }
+
+                    @include d4{
+                        font-size: 1.2em;
+                    }
+
+                    @include d5{
+                        font-size: .9em;
+                    }
+                }
+
+                p{
+                    padding-top: 5%;
+                    font-size: 1.5em;
+                    color: whitesmoke;
+
+                    @include d3{
+                        font-size: 1.3em;
+                    }
+
+                    @include d4{
+                        font-size: 1.1em;
+                    }
+
+                    @include d5{
+                        font-size: 0.9em;
+                    }
+                }
+
+                a{
+                    text-decoration: none;
+                    color: #4eb5c7;
+                    font-size: 2.5em;
+                    transition: 1s;
+
+                    &:hover{
+                        color: lighten(#4eb5c7, 30%);
+                        transform: translateY(10px);
+                    }
+                }
+            }
+        }
+    }
+}
+
+body{
+
+    .section-1{
+
+        .row-1{
+            padding: 5% 0%;
+            background-color: darken(whitesmoke, 5%);
+
+            .colon-11{
+                display: $f;
+                justify-content: $c;
+                align-items: $c;
+                padding: 0%;
+                margin-top: 0%;
+
+                @include d1{
+                    margin-top: 10%;
+                }
+
+                .image1holder{
+                    width: 100%;
+                    height: 100%;
+                    display: $f;
+                    justify-content: $c;
+                    align-items: $c;
+                    
+
+                    img{
+                        max-width: 100%;
+                        height: auto;
+
+                        @include d1{
+                            width: 60%;
+                        }
+
+                        @include d3{
+                            width: 75%;
+                        }
+
+                    }
+                }
+            }
+
+            .colon-1{
+                display: $f;
+                justify-content: $c;
+                align-items: $c;
+
+                .text-1{
+                    display: $f;
+                    flex-direction: $co;
+                    justify-content: $c;
+                    align-items: $c;
+                    font-family: sumar;
+                    padding: 0% 5%;
+
+                    h2{
+                        font-size: 3.5em;
+                        color: #000;
+
+                        @include d0{
+                            font-size: 3em;
+                        }
+
+                        @include d4{
+                            font-size: 2.3em;
+                        }
+
+                        @include d5{
+                            font-size: 1.9em;
+                        }
+
+                        label{
+                            font-size: 1em;
+                            color: #000;
+                            border-bottom: 4px solid rgb(59, 136, 187);
+                            padding-bottom: 3%;
+                        }
+
+                        i{
+                            color: rgb(59, 136, 187);
+                            font-size: 1em;
+                        }
+                    }
+
+                    ul{
+                        list-style-type: none;
+                        width: 90%;
+
+                        li{
+                            color: darken(rgb(69, 151, 199), 10%);
+                            margin: 1% 0%;
+                            font-weight: bolder;
+                        }
+                    }
+
+                    p{
+                        font-size: 1.2em;
+                        color: #000;
+                        text-align: justify;
+
+                        @include d0{
+                            font-size: 1.1em;
+                        }
+
+                        @include d4{
+                            font-size: 0.9em;
+                        }
+                    }
+
+                    p:first-of-type{
+                        padding-top: 5%;
+                    }
+
+                    p:last-of-type{
+                        padding: 3% 0%;
+                    }
+
+                    a{
+                        display: $f;
+                        justify-content: $c;
+                        align-items: $c;
+                        width: 30%;
+                        font-weight: bold;
+                        color: whitesmoke;
+                        background-color: rgb(59, 136, 187);
+                        padding: 20px 0%;
+                        transition: 0.7s;
+
+                        @include d0{
+                            width: 40%;
+                        }
+
+                        @include d1{
+                            margin-top: 3%;
+                        }
+
+                        @include d3{
+                            width: 50%;
+                        }
+
+                        @include d4{
+                            width: 60%;
+                        }
+
+                        @include d5{
+                            width: 70%;
+                        }
+
+                        &:hover{
+                            color: rgb(77, 224, 212);
+                            background-color: rgb(79, 159, 212);
+                            cursor: pointer;
+                        }
+                    }
+                }
+
+                .text-0{
+
+                    @include d1{
+                        margin-top: 10%;
+                    }
+                }
+            }
+        }
+
+        .whiten{
+            background-color: whitesmoke;
+        }
+    }
+}
+
+body{
+
+    .contTin{
+        background-image: url('../images/tin.JPG');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        margin: 15% 0%;
+        
+        .rowTin{
+
+            .colTin{
+
+                .coverTin{
+                    background-color: rgba(0,0,0,0.5);
+                    width: 100%;
+                    height: 100%;
+                    display: $f;
+                    flex-direction: $co;
+                    justify-content: $c;
+                    align-items: $c;
+                    padding: 3% 0%;
+                    color: whitesmoke;
+                    font-weight: bolder;
+                    text-align: $c;
+
+                    h3{
+                        @include d4{
+                            font-size: 1.4em;
+                            padding: 3%;
+                        }
+
+                        @include d5{
+                            font-size: 1.2em;
+                        }
+                    }
+
+                    p{
+                        @include d4{
+                            font-size: .9em;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+body{
+
+    .contMap{
+        margin: 5% 0%;
+
+        h2{
+            padding-bottom: 6%;
+            text-align: center;
+            font-size: 3em;
+
+            @include d4{
+                font-size: 2em;
+            }
+        }
+        .rowMap{
+            
+            .colMap{
+
+                .map{
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+body{
+
+    .section-2{
+        margin: 10% 0% 3% 0%;
+        font-family: sumar;
+        display: $f;
+        flex-direction: $co;
+        justify-content: $c;
+        align-items: $c;
+        background-color: darken(whitesmoke, 5%);
+
+        h2{
+            text-align: center;
+            font-size: 3.5em;
+            color: #000;
+            padding-top: 5%;
+
+            @include d4{
+                font-size: 3.2em;
+            }
+            
+            @include d5{
+                font-size: 2.5em;
+            }
+
+            label{
+                font-size: 1em;
+                color: #000;
+                border-bottom: 4px solid rgb(59, 136, 187);
+                padding-bottom: 3%;
+            }
+        }
+
+        .cont-3{
+            margin: 10% 0%;
+
+            .row-3{
+
+                .colon-3{
+
+                    .card-holder{
+                        display: $f;
+                        justify-content: $sa;
+                        align-items: $c;
+                        flex-wrap: $fw;
+
+                        @include d1{
+                            justify-content: $sb;
+                        }
+
+                        @include d2{
+                            justify-content: $c;
+                        }
+
+                        .card{
+                            width: 40%;
+                            height: 400px;
+                            display: $f;
+                            flex-direction: $co;
+                            justify-content: $c;
+                            align-items: $c;
+                            background-color: rgb(245, 244, 244);
+                            border: 4px solid rgb(52, 137, 185);
+
+                            @include d1{
+                                width: 45%;
+                            }
+
+                            @include d2{
+                                width: 60%;
+                                margin-bottom: 8%;
+                            }
+
+                            @include d3{
+                                width: 75%;
+                            }
+
+                            @include d4{
+                                width: 85%;
+                            }
+
+                            @include d5{
+                                width: 95%;
+                            }
+
+                            
+                            .card-div-1{
+                                width: 100%;
+                                height: 20%;
+                                display: $f;
+                                justify-content: $c;
+                                align-items: $c;
+                                font-family: sumar;
+
+                                i{
+                                    font-size: 3em;
+                                    color: rgb(52, 137, 185);
+                                }
+                            }
+
+                            .card-div-11{
+                                width: 100%;
+                                height: 20%;
+                                display: $f;
+                                justify-content: $c;
+                                align-items: $c;
+
+                                h3{
+                                    color: #000;
+
+                                    @include d1{
+                                        font-size: 1.3em;
+                                    }
+                                }
+                            }
+
+                            .card-div-111{
+                                width: 100%;
+                                height: 50%;
+                                display: $f;
+                                flex-direction: $co;
+                                justify-content: $c;
+                                align-items: $c;
+                                padding: 0% 5%;
+
+                                p{
+                                    font-size: 1em;
+                                    line-height: 1.6;
+                                    text-align: justify;
+                                    color: #000;
+
+                                    @include d1{
+                                        text-align: $c;
+                                    }
+                                }
+
+                                .down{
+                                    padding-top: 5%;
+                                    text-transform: uppercase;
+                                    text-align: $c;
+                                    color: rgb(52, 137, 185);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .car{
+        width: 80%;
+        margin: 10% auto;
+
+        ol{
+
+            li{
+                background-color: rgb(52, 137, 185);
+            }
+        }
+    }
+}
+
+body{
+
+    footer{
+        width: 100%;
+        padding: 5% 0%;
+        font-family: sumar;
+        margin-top: 15%;
+        border-top: 4px solid rgb(52, 137, 185);
+        background-color: darken(whitesmoke, 5%);
+
+        .footFluid{
+            
+            .contFoot{
+
+                .rowFoot{
+
+                    .colonFoot1{
+                        display: $f;
+                        flex-direction: $co;
+                        justify-content: $c;
+                        align-items: $c;
+                        font-family: sumar;
+
+                        p{
+                            font-size: 2.5em;
+                            color: #000;
+                            padding-bottom: 10%;
+
+                            @include d4{
+                                font-size: 2.2em;
+                            }
+
+                            @include d5{
+                                font-size: 1.5em;
+                                padding-top: 5%;
+                            }
+                        }
+
+                        .footerP{
+                            padding: 0px;
+                            font-size: 1.5em;
+
+                            @include d4{
+                                font-size: 1.1em;
+                            }
+
+                            @include d5{
+                                font-size: 0.9em;
+                            }
+                        }
+
+                        .sakriven{
+                            visibility: hidden;
+                        }
+
+                        .insta{
+                            color: blueviolet;
+                            font-size: 2.5em;
+                            transition: 1s;
+
+                            &:hover{
+                                transform: translateY(10px);
+                            }
+
+                            i{
+                                color: blueviolet;
+                            }
+                        }
+
+                        form{
+                            display: $f;
+                            flex-direction: $co;
+                            justify-content: $c;
+                            align-items: $c;
+                            width: 100%;
+                            border: none;
+                            margin-bottom: 10%;
+
+                            .polje{
+                                width: 80%;
+                                margin: 2% 0%;
+                                background-color: darken(whitesmoke, 5%);
+                                color: rgb(52, 137, 185);
+                                border: none;
+                                border-bottom: 3px solid whitesmoke;
+                                padding: 1% 2%;
+                                transition:0.8s;
+
+                                @include d4{
+                                    margin-bottom: 5%;
+                                    width: 90%;
+                                }
+
+
+                                &::placeholder{
+                                    color: rgb(65, 131, 207);
+                                    transition: 0.8s;
+                                    font-family: sumar;
+                                }
+
+                                &:focus{
+                                    border-bottom: 3px solid rgb(52, 137, 185);
+                                }
+
+                                &:focus::placeholder{
+                                    color: rgb(52, 137, 185);
+                                }
+                            }
+
+                            #area{
+                                width: 80%;
+                                resize: none;
+                                padding: 2% 2%;
+                                border: none;
+                                border-bottom: 3px solid whitesmoke;
+                                background-color: darken(whitesmoke, 5%);
+                                color: rgb(52, 137, 185);
+                                margin-top: 3%;
+
+                                @include d4{
+                                    width: 90%;
+                                }
+
+                                &::placeholder{
+                                    color: rgb(52, 137, 185);
+                                    transition: 0.8s;
+                                    font-family: sumar;
+                                }
+
+                                &:focus{
+                                    border-bottom: 3px solid rgb(52, 137, 185);
+                                }
+
+                                &:focus::placeholder{
+                                    color: rgb(52, 137, 185);
+                                }
+                            }
+
+                            .posalji{
+                                display: block;
+                                margin-top: 10%;
+                                width: 25%;
+                                padding: 1% 0%;
+                                border: none;
+                                border-radius: 6px;
+                                background-color: rgb(52, 137, 185);
+                                color: whitesmoke;
+                                font-weight: bold;
+                                transition: 0.8s;
+
+                                @include d1{
+                                    width: 35%;
+                                    padding: 2% 0%;
+                                }
+
+                                @include d3{
+                                    margin-bottom: 5%;
+                                }
+
+                                @include d4{
+                                    width: 45%;
+                                    padding: 3% 0%;
+                                }
+
+                                @include d5{
+                                    width: 55%;
+                                }
+
+                                &:hover{
+                                    color: rgb(52, 137, 185);
+                                    background-color: whitesmoke;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+::-webkit-scrollbar{
+    width: 13px;
+    background-color: black;
+}
+
+::-webkit-scrollbar-thumb{
+    border-radius: 5px;
+    background-color: #ffffff;
+}
+
+::-webkit-scrollbar-track{
+    box-shadow: 0 0 3px black;
+}
+
+// Galerija 
+
+body{
+
+    .contGal{
+        font-family: sumar;
+        margin-top: 13%;
+
+        h2{
+            text-align: center;
+            font-size: 3em;
+            color: #000;
+
+            @include d0{
+                padding-top: 10%;
+            }
+
+            @include d2{
+                font-size: 2.5em;
+            }
+
+            @include d3{
+                font-size: 2.2em;
+            }
+
+            @include d4{
+                font-size: 1.6em;
+                padding-top: 20%;
+            }
+
+            @include d5{
+                font-size: 1.3em;
+                padding-top: 30%;
+            }
+            
+
+            label{
+                border-bottom: 4px solid rgb(59, 136, 187);
+                padding-bottom: 1%;
+
+                @include d2{
+                    padding-bottom: 3%;
+                }
+            }
+        }
+
+        p{
+            text-align: center;
+            font-size: 1.4em;
+            color: #000;
+            padding-bottom: 5%;
+
+            @include d4{
+                font-size: 1em;
+            }
+
+            @include d5{
+                font-size: 1em;
+            }
+        }
+
+        .rowGal{
+                margin: 5% 0%;
+
+                @include d2{
+                    margin: 0%;
+                }
+
+            .colGal{
+
+                .gallery{
+                    width: 100%;
+                    display: $f;
+                    justify-content: $sb;
+                    align-items: $c;
+                    flex-wrap: $fw;
+
+                    @include d4{
+                        justify-content: $c;
+                    }
+
+                    a{
+                        width: 20%;
+                        border: 3px solid whitesmoke;
+                        border-radius: 4px;
+                        transition: 0.8s;
+
+                        @include d2{
+                            width: 45%;
+                            margin: 5% 0%;
+                        }
+
+                        @include d4{
+                            width: 80%;
+                        }
+
+
+                        &:hover{
+                            border-color: rgb(52, 137, 185);
+                        }
+
+                        .holderGal{
+                                
+                            img{
+                                max-width: 100%;
+                                height: auto;
+                            }
+                        }
+                    }
+                }
+
+                .crumbs{
+                    width: 100%;
+                    display: $f;
+                    justify-content: $c;
+                    align-items: $c;
+                    margin-top: 5%;
+
+                    @include d2{
+                        margin-top: 10%;
+                    }
+
+                    a{
+                        margin: 0% 2%;
+                        text-decoration: none;
+                        font-size: 1.3em;
+                        color: black;
+                        transition: 0.8s;
+
+                        @include d2{
+                            margin: 0% 3%;
+                        }
+
+                        @include d4{
+                            margin: 0% 5%;
+                        }
+
+                        &:hover{
+                            color: rgb(52, 137, 185);
+                        }
+                    }
+
+                    .sele{
+                        color: rgb(52, 137, 185);
+                    }
+
+                    span{
+                        position: relative;
+
+                        &:after{
+                            content: '';
+                            position: absolute;
+                            width: 10px;
+                            height: 2px;
+                            background-color: rgb(69, 151, 199);
+                            left: -5px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Cenovnik
+
+body{
+
+    .contCen{
+        margin-top: 13%;
+
+        h2{
+            text-align: center;
+            font-family: sumar;
+            font-size: 3em;
+            color: #000;;
+            padding-bottom: 6%;
+
+            @include d0{
+                padding-top: 10%;
+            }
+
+            @include d4{
+                font-size: 2.3em;
+            }
+
+            @include d5{
+                font-size: 2em;
+                padding-top: 35%;
+            }
+
+            label{
+                border-bottom: 4px solid rgb(59, 136, 187);
+                padding-bottom: 1%;
+            }
+        }
+
+        .rowCen{
+            
+            
+            
+            .colCenSlika{
+                display: $f;
+                justify-content: $c;
+                align-items: $c;
+                padding: 0%;
+
+                .slikaCen{
+                    width: 100%;
+                    display: $f;
+                    justify-content: $c;
+                    align-items: $c;
+                    width: 100%;
+
+                    img{
+                        max-width: 100%;
+                        height: auto;
+                    }
+                }
+            }
+
+            .colCenText{
+                display: $f;
+                flex-direction: $co;
+                justify-content: $c;
+                align-items: $c;
+                background-color: #141414;
+                font-family: sumar;
+
+                &:first-of-type{
+                    border-left: 4px solid rgb(59, 136, 187);
+
+                    @include d2{
+                        border-right: 4px solid rgb(59, 136, 187);
+                    }
+
+                    @include d4{
+                        border-top: 4px solid rgb(59, 136, 187);
+                    }
+                }
+
+                &:nth-of-type(2){
+                    border-right: 4px solid rgb(59, 136, 187);
+
+                    @include d2{
+                        border-left: 4px solid rgb(59, 136, 187);
+                    }
+                }
+
+                p{
+                    font-size: 1.4em;
+                    color: whitesmoke;
+
+                    @include d0{
+                        font-size: 1.2em;
+                    }
+
+                    @include d1{
+                        text-align: $c;
+                    }
+
+                    @include d2{
+                        padding: 3% 0%;
+                    }
+
+                    @include d5{
+                        padding: 5% 0%;
+                    }
+                }
+
+                p:first-of-type{
+                    color: rgb(59, 136, 187);
+
+                    @include d4{
+                        font-size: 1.9em;
+                    }
+                }
+
+                p:last-of-type{
+                    font-size: 1.2em;
+
+                    @include d4{
+                        font-size: 1.2em;
+                    }
+                }
+            }
+
+            .colDog{
+                background-color: lighten(#141414, 1%);
+                display: $f;
+                justify-content: $c;
+                align-items: $c;
+                border-bottom: 3px solid rgb(59, 136, 187);
+
+                @include d2{
+                    border: 3px solid rgb(59, 136, 187);
+                }
+
+                p{
+                    margin: 0px;
+                    font-size: 1.5em;
+                    color: rgb(59, 136, 187);
+                    padding: 4% 0%;
+
+                    @include d2{
+                        text-align: $c;
+                    }
+
+                    @include d5{
+                        font-size: 1.25em;
+                    }
+                }
+            }
+        }
+    }
+}
